@@ -12,7 +12,7 @@ public:
         int MinStock = prices[0]; // 记录最小股票值
         int CurStock = 0;         // 记录当前股票值
         int CurProfit = 0;        // 记录最大利润
-        int PreProfit = 0;        // 上一利润值
+        int MaxProfit = 0;        // 上一利润值
         for (int i = 1; i < prices.size(); i++)
         {
             CurStock = prices[i];
