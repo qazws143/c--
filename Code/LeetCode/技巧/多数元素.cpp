@@ -2,7 +2,6 @@
 #include "queue"
 #include "unordered_map"
 #include "stack"
-#include "stdio.h"
 
 using namespace std;
 
