@@ -1,0 +1,49 @@
+#include "vector"
+#include "stack"
+#include "string"
+
+using namespace std;
+
+class Solution
+{
+public:
+    string decodeString(string s)
+    {
+        stack<int> math;    // 存储数字
+        stack<string> str;  // 存储字符串
+        string currentStr;  // 当前字符串
+        int currentNum = 0; // 当前数字
+
+        for (char c : s) // 遍历字符串
+        {
+            if (isdigit(c))
+            {
+                // 处理多位数
+                currentNum = currentNum * 10 + (c - '0');
+            }
+            else if (c == '[')
+            { // 如果遇到左中括号,则分别将数组和子串压入栈中
+                math.push(currentNum);
+                str.push(currentStr);
+                currentNum = 0;
+                currentStr.clear();
+            }
+            else if (c == ']')
+            {
+                int nums = math.top();
+                math.pop();
+                string prestr = str.top();
+                str.pop();
+                string tmp;
+                for (int i = 0; i < nums; i++)
+                {
+                    tmp += currentStr;
+                }
+                currentStr = prestr + tmp;
+            }
+            else // 没有遇到括号则暂存到当前字符串
+                currentStr += c;
+        }
+        return currentStr;
+    }
+};
