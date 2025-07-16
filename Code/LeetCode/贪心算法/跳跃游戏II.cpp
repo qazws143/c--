@@ -14,10 +14,10 @@ public:
         for (int i = 0; i < nums.size() - 1; i++)
         {
             maxjump = max(maxjump, i + nums[i]);
-            if (i == end)
+            if (i == end) // 索引到边界
             {
-                minstep++;
-                end = maxjump;
+                minstep++;     // 进行跳转
+                end = maxjump; // 更新跳跃边界
             }
             if (end >= nums.size() - 1)
                 break;
