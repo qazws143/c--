@@ -5,12 +5,8 @@
 using namespace std;
 int main()
 {
-    int x, y;
-    x = 0;
-    while (x < 10)
-    {
-        y << x * x;
-        printf("%d\t%d\n", x, y);
-        x += 1;
-    }
+    int x = 1;
+    int y = ~x;
+    int z = !x;
+    printf("%d %d", y, z);
 }
