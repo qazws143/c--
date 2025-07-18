@@ -19,11 +19,12 @@ public:
             return false;
         int target = sum / 2; // 一个子集的总和
 
-        vector<int> dp(target + 1, 0);
+        vector<int> dp(target + 1, 0); // 在每个背包中,数值既是它的价值也是它的重量
 
-        for (int i = 0; i < size; i++) // 遍历数组中的元素
+        dp[0] = 0;
+        for (int i = 0; i < size; i++) // 遍历数组中的个数,即为物品个数
         {
-            for (int j = target; j >= nums[i]; j--)
+            for (int j = target; j >= nums[i]; j--) // 倒序遍历避免一个元素被多次使用
             {
                 dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);
             }
