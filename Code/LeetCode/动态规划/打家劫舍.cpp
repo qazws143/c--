@@ -12,6 +12,8 @@ public:
     {
         if (nums.size() == 0)
             return 0;
+        if (nums.szie() == 1)
+            return nums[0];
 
         int size = nums.size();
         vector<int> dp(size, 0); // 偷这些房子的最大金额
