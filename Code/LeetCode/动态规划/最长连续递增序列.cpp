@@ -27,7 +27,7 @@ public:
 int main(void)
 {
     Solution sol;
-    vector<int> n = {1, 3, 5, 4, 7};
+    vector<int> n = {-2, 0, -1};
     int i = 0;
     i = sol.findLengthOfLCIS(n);
     printf("连续递增的子序列的长度为:%d\n", i);
