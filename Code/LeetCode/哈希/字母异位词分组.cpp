@@ -19,7 +19,7 @@ public:
             map[key].push_back(s);        // 将相同的字符串放在一个数组
         }
         vector<vector<string>> result;
-        for (auto &pair : map)
+        for (auto &pair : map)             // 遍历哈希表
             result.push_back(pair.second); // 将元素放入数组
         return result;
     }
