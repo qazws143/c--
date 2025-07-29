@@ -16,15 +16,31 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    ListNode* swapPairs(ListNode* head) {
-        
+    ListNode *swapPairs(ListNode *head)
+    {
+        ListNode *dummyHead = new ListNode(0); // 设置一个虚拟头结点
+        dummyHead->next = head;                // 将虚拟头结点指向head，这样方便后面做删除操作
+        ListNode *cur = dummyHead;
+        while (cur->next != nullptr && cur->next->next != nullptr)
+        {
+            ListNode *swap1 = cur->next;
+            ListNode *swap2 = cur->next->next->next;
+
+            cur->next = cur->next->next;
+            cur->next->next = swap1;
+            cur->next->next->next = swap2;
+
+            cur = cur->next->next;
+        }
+        ListNode *ret = dummyHead->next;
+        delete dummyHead;
+        return ret;
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -40,4 +56,3 @@ public:
 // @lcpr case=end
 
  */
-
