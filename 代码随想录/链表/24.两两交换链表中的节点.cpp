@@ -26,12 +26,12 @@ public:
         ListNode *cur = dummyHead;
         while (cur->next != nullptr && cur->next->next != nullptr)
         {
-            ListNode *swap1 = cur->next;
-            ListNode *swap2 = cur->next->next->next;
+            ListNode *swap1 = cur->next;             // swap1=1
+            ListNode *swap2 = cur->next->next->next; // swap2=3
 
-            cur->next = cur->next->next;
-            cur->next->next = swap1;
-            cur->next->next->next = swap2;
+            cur->next = cur->next->next;   // dummy->2
+            cur->next->next = swap1;       // 2->1
+            cur->next->next->next = swap2; // 1->3
 
             cur = cur->next->next;
         }
